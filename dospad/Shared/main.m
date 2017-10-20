@@ -275,22 +275,51 @@ int main(int argc, char *argv[]) {
         NSString *docDirectory = [paths objectAtIndex:0];
         
         
+        /// PRINT THE MAIN BUNDLE DIRECTORY:
+//        NSURL *bundleRoot = [[NSBundle mainBundle] resourceURL];
+//        NSArray* resContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"file:///var/containers/Bundle/" error:NULL];
+        
+
+//        NSArray * dirContents =
+//        [fm contentsOfDirectoryAtURL:bundleRoot
+//          includingPropertiesForKeys:@[]
+//                             options:NSDirectoryEnumerationSkipsHiddenFiles
+//                               error:nil];
+        
+        
+        
         
         // Auto mount
 #ifndef IDOS // DOSPAD for CYDIA
 //        strcpy(diskc, "/var/mobile/Documents");
-        strcpy(diskc, "/var/containers/Bundle/Application/3FD50F1A-0E40-4F0E-A07A-8DBB3C91BBBB/");
+        strcpy(diskc, [[fso documentsDirectory] UTF8String]);
         
         strcpy(diskd, [[fso documentsDirectory] UTF8String]);
 #else
         strcpy(diskc, [[fso documentsDirectory] UTF8String]);
-        strcpy(diskd, "/var/containers/Bundle/Application/3FD50F1A-0E40-4F0E-A07A-8DBB3C91BBBB/");
+        strcpy(diskd, [[fso documentsDirectory] UTF8String]);
 #endif
         
         NSString *cPath=[NSString stringWithUTF8String:diskc];
         NSString *dPath=[NSString stringWithUTF8String:diskd];
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        
+        NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"diskc/"];
+        NSMutableArray *array = [fso contentsOfDirectory:path];
+        // Copy files to C disk (Written By: Matt Andrzejczuk)
+        NSLog([@"📱" stringByAppendingString:path]);
+        for (int i = 0; i < array.count; i++) {
+            NSLog(@" ❌ ");
+            NSLog([path stringByAppendingString:array[i]]);
+            [fileManager copyItemAtPath:[path stringByAppendingString:array[i]] toPath:cPath error:NULL];
+            NSLog(@" ⚠️ ");
+            NSLog(cPath);
+        }
+        
+        
+        
         
         // Copy files to C disk (documents)
         NSString *bundlePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"diskc"];
