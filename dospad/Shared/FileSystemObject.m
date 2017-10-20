@@ -56,11 +56,19 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDirectory = [paths objectAtIndex:0];
+
+    NSLog(@"💜");
+    NSLog(docDirectory);
+    NSLog(@"💜");
+
     return docDirectory;
 }
 
 -(bool)createDirectory:(NSString*)path
 {
+    NSLog(@"💛");
+    NSLog(path);
+    NSLog(@"💛");
     NSDictionary* attr = [NSDictionary dictionaryWithObjectsAndKeys:
                           [NSNumber numberWithInt:0777],
                           NSFilePosixPermissions,nil];
@@ -69,16 +77,25 @@
 
 -(bool)fileExists:(NSString*)path
 {
+    NSLog(@"💚");
+    NSLog(path);
+    NSLog(@"💚");
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
 -(bool)directoryExists:(NSString*)path
 {
+    NSLog(@"💙");
+    NSLog(path);
+    NSLog(@"💙");
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
 -(NSArray*)contentsOfDirectory:(NSString*)path
 {
+    NSLog(@"❤️");
+    NSLog(path);
+    NSLog(@"❤️");
     NSArray *a = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
     if (a==nil) return nil;
     a = [a sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];

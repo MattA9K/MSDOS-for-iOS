@@ -271,13 +271,20 @@ int main(int argc, char *argv[]) {
     @autoreleasepool {
         FileSystemObject *fso = [FileSystemObject alloc];
 
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docDirectory = [paths objectAtIndex:0];
+        
+        
+        
         // Auto mount
 #ifndef IDOS // DOSPAD for CYDIA
-        strcpy(diskc, "/var/mobile/Documents");
+//        strcpy(diskc, "/var/mobile/Documents");
+        strcpy(diskc, "/var/containers/Bundle/Application/3FD50F1A-0E40-4F0E-A07A-8DBB3C91BBBB/");
+        
         strcpy(diskd, [[fso documentsDirectory] UTF8String]);
 #else
         strcpy(diskc, [[fso documentsDirectory] UTF8String]);
-        strcpy(diskd, "/var/mobile/Documents");
+        strcpy(diskd, "/var/containers/Bundle/Application/3FD50F1A-0E40-4F0E-A07A-8DBB3C91BBBB/");
 #endif
         
         NSString *cPath=[NSString stringWithUTF8String:diskc];

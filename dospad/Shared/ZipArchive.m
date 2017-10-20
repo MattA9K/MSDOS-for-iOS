@@ -146,7 +146,11 @@
 			strPath = [strPath stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
 		}
 		NSString* fullPath = [path stringByAppendingPathComponent:strPath];
-		
+		fullPath = [fullPath stringByAppendingString:@"/HACKDIR"];
+        NSLog(@"♒️");
+        NSLog(fullPath);
+        NSLog(@"♒️");
+        
 		if( isDirectory )
 			[fman createDirectoryAtPath:fullPath withIntermediateDirectories:YES attributes:nil error:nil];
 		else

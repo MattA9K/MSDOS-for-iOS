@@ -44,6 +44,9 @@ const char *dospad_config_dir()
 	// Make sure default config dir exists
 	NSString *defaultDir = [[ConfigManager configsDirectory] stringByAppendingPathComponent:@"default"];
 	if (![fileManager fileExistsAtPath:defaultDir isDirectory:&isDir]) {
+        NSLog(@"☢️");
+        NSLog(defaultDir);
+        NSLog(@"☢️");
 		if (![fileManager createDirectoryAtPath:defaultDir withIntermediateDirectories:YES attributes:nil error:nil])
 			return NO;
 		

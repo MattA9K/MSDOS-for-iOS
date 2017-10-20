@@ -153,6 +153,9 @@
 // Reference: https://developer.apple.com/library/ios/qa/qa1719/_index.html
 - (BOOL)setBackupAttributeToItemAtPath:(NSString *)filePathString skip:(BOOL)skip
 {
+    NSLog(@"✅");
+    NSLog(filePathString);
+    NSLog(@"✅");
     NSURL* URL = [NSURL fileURLWithPath: filePathString];
     assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
  
