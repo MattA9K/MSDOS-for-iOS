@@ -37,9 +37,13 @@ extern int SDL_main(int argc, char *argv[]);
 
 - (void) run {
     @autoreleasepool {
-        char *argv[1] = {"dosbox"};
-        SDL_main(1, argv);
-        started = NO;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            char *argv[1] = {"dosbox"};
+            SDL_main(1, argv);
+            self.started = NO;
+        });
+        
     }
 } 
 
