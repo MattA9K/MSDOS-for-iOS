@@ -10,7 +10,7 @@ Updated app build settings to support iOS 8, 9, 10, 11 and 12. Initially this so
 
 ## Getting Started
 Included with this MS-DOS emulator is a copy of Warcraft II Alpha.
-If you'd like to play more classic DOS games on your iOS device, simple move
+If you'd like to play more classic DOS games on your iOS device, simply move
 directories containing your games to be alongside the `war2a` directory and volla!
 You can copy and start playing Duke Nukem 3D in no time!
 * Copy all your classic DOS games to the project folder: `/diskc/yourDOSgame`
