@@ -4,7 +4,7 @@ dospad
 #### Easy for Everyone
 Hopefully, anyone with access to an iMac can use this Xcode project to have a fully fledged x86 emulator on their iOS device without too much trouble. 
 
-# MSDOS for iOS 10 - iOS 13
+# MSDOS for iOS 10 - iOS 12
 Updated app build settings to support iOS 10 or later. Initially this source code was built to run on older iOS 5 architectures, so hopefully this might run a whole lot faster on the latest hardware. 
 
 
