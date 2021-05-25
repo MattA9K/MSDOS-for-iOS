@@ -1,5 +1,8 @@
 dospad
 ======
+### UPDATE 2021  
+problems with the latest iOS need to be fixed, OpenGL needs to be replaced with METAL, check back later!
+[![Text]({'https://i.ytimg.com/vi/KMX_FuOLoCI/hqdefault.jpg'})]({'https://www.youtube.com/watch?v=KMX_FuOLoCI'} "Text")
 
 #### Easy for Everyone
 Hopefully, anyone with access to an iMac can use this Xcode project to have a fully fledged x86 emulator on their iOS device without too much trouble. 
